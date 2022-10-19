@@ -15,3 +15,16 @@ a, a:hover{
 .fa-bars{
   font-size: 2rem;
 }
+
+aside{
+  width: 300px;
+}
+
+.foto:hover{
+  cursor: pointer;
+  background-color: rgb(194, 194, 194);
+}
+
+.display img{
+  max-height: 65vh;
+}
