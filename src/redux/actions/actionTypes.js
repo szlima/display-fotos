@@ -1,0 +1,1 @@
+export const SELECIONAR_FOTO= 'SELECIONAR_FOTO';
