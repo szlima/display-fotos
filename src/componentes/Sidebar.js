@@ -1,6 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-function Sidebar({albuns}){
+import {selecionarFotoAction} from '../redux/actions/actionCreators';
+
+function Sidebar({albuns, selecionarFoto}){
            
     return (
         <aside id='accordion'>
@@ -15,7 +18,7 @@ function Sidebar({albuns}){
                         <div id={`collapseAlbum${album[0].albumId}`} className='collapse' data-bs-parent='#accordion'>
                             {
                                 album.map(foto => (
-                                    <div className='card-body foto text-secondary' key={`foto${foto.id}`}>
+                                    <div className='card-body foto text-secondary' key={`foto${foto.id}`} onClick={() => selecionarFoto(foto)}>
                                         <p>{`Foto ${foto.id}`}</p>
                                     </div>
                                 ))
@@ -28,4 +31,9 @@ function Sidebar({albuns}){
     );
 }
 
-export default Sidebar;
+const mapDispatchToProps= dispatch => ({
+    selecionarFoto: foto => dispatch(selecionarFotoAction(foto))    
+});
+
+
+export default connect(null, mapDispatchToProps)(Sidebar);

@@ -20,9 +20,19 @@ aside{
   width: 300px;
 }
 
+.collapse{
+  overflow: scroll;
+  height: 50vh;
+}
+
 .foto:hover{
   cursor: pointer;
   background-color: rgb(194, 194, 194);
+}
+
+.display{
+  min-width: 50%;
+  height: 80vh;
 }
 
 .display img{

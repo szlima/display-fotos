@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import {Provider} from 'react-redux';
+
+import store from '../redux/store';
 
 import Navbar from './Navbar';
 import Display from './Display';
@@ -8,14 +11,6 @@ import {carregarAlbuns} from '../dados';
 
 function App(){
 
-    const foto= {
-        albumId: 1,
-        id: 4,
-        title: "1culpa odio esse rerum om…m voluptate repudiandae",
-        url: "https://via.placeholder.com/600/d32776",
-        thumbnailUrl: "https://via.placeholder.com/150/d32776"
-    };
-
     const [albuns, setAlbuns]= useState([]);
     
     useEffect(() => {
@@ -24,11 +19,13 @@ function App(){
     
     return (
         <div>
-            <Navbar/>
-            <main className='p-2 d-flex justify-content-around'>
-                <Display foto={foto}/>
-                <Sidebar albuns={albuns}/>
-            </main>
+            <Provider store={store}>
+                <Navbar/>
+                <main className='p-2 d-flex justify-content-around'>
+                    <Display/>
+                    <Sidebar albuns={albuns}/>
+                </main>
+            </Provider>            
         </div>
     );
 }
