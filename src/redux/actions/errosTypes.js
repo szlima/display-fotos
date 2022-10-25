@@ -1,0 +1,1 @@
+export const ERRO_CARREGAMENTO_ALBUNS= 'Não foi possível carregar os albuns.';
