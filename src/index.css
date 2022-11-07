@@ -16,6 +16,10 @@ a, a:hover{
   font-size: 2rem;
 }
 
+.logo:hover{
+  cursor: pointer;
+}
+
 aside{
   width: 300px;
 }

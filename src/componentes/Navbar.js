@@ -1,6 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-function Navbar(){
+import {selecionarFotoAction} from '../redux/actions/actionCreators';
+
+function Navbar({selecionarFoto}){
 
     return (
         <nav className='navbar bg-light px-5 py-3'>
@@ -8,7 +11,7 @@ function Navbar(){
                 <a href='#'>
                     <i className="fa-solid fa-bars"></i>
                 </a>
-                <h4 className='mx-4'>Display de fotos</h4>
+                <h4 className='mx-4 logo' onClick={() => selecionarFoto(undefined)}>Display de fotos</h4>
             </div>            
             
             <form className='d-flex'>
@@ -21,4 +24,8 @@ function Navbar(){
     );
 }
 
-export default Navbar;
+const mapDispatchToProps= dispatch => ({
+    selecionarFoto: foto => dispatch(selecionarFotoAction(foto)),
+});
+
+export default connect(null, mapDispatchToProps)(Navbar);
